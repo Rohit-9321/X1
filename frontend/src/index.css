@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { @apply font-sans bg-surface text-ink antialiased; }
+}
+
+@layer components {
+  .btn-primary { @apply bg-primary text-white px-5 py-2.5 rounded-lg font-semibold text-sm transition-all hover:shadow-glow active:scale-95; background-color: #5B3BF5; }
+  .btn-primary:hover { background-color: #4829e0; transform: translateY(-1px); }
+  .btn-ghost   { @apply border border-gray-200 text-gray-700 px-5 py-2.5 rounded-lg font-semibold text-sm transition-all; }
+  .btn-ghost:hover { border-color: #5B3BF5; color: #5B3BF5; }
+  .card        { @apply bg-white border border-gray-100 rounded-2xl p-6 shadow-card; }
+  .input       { @apply w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none transition-all; }
+  .input:focus { border-color: #5B3BF5; box-shadow: 0 0 0 3px rgba(91,59,245,0.1); }
+  .badge-easy   { @apply text-xs font-bold px-2.5 py-1 rounded-full bg-green-100 text-green-700; }
+  .badge-medium { @apply text-xs font-bold px-2.5 py-1 rounded-full bg-yellow-100 text-yellow-700; }
+  .badge-hard   { @apply text-xs font-bold px-2.5 py-1 rounded-full bg-red-100 text-red-700; }
+  .sidebar-link { @apply flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-gray-600 transition-all; }
+  .sidebar-link:hover { background-color: rgba(91,59,245,0.08); color: #5B3BF5; }
+  .sidebar-link.active { background-color: rgba(91,59,245,0.1); color: #5B3BF5; font-weight: 600; }
+}
+
+@layer utilities {
+  .font-display { font-family: 'Syne', sans-serif; }
+  .scrollbar-thin { scrollbar-width: thin; }
+}
