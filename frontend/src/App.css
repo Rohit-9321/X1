@@ -1,1 +1,75 @@
 /* App-level styles handled via Tailwind */
+/* App Layout */
+
+.app{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+
+.app-header{
+  position:relative;
+  overflow:hidden;
+  padding:72px 24px;
+  background:linear-gradient(135deg,#4F46E5,#5B3BF5,#0EA5E9);
+  color:white;
+}
+
+.app-header::before{
+  content:"";
+  position:absolute;
+  width:280px;
+  height:280px;
+  right:-80px;
+  top:-80px;
+  border-radius:50%;
+  background:rgba(255,255,255,.12);
+}
+
+.app-header::after{
+  content:"";
+  position:absolute;
+  width:200px;
+  height:200px;
+  left:-60px;
+  bottom:-70px;
+  border-radius:50%;
+  background:rgba(255,255,255,.08);
+}
+
+.container{
+  max-width:1200px;
+  margin:0 auto;
+  position:relative;
+  z-index:2;
+}
+
+.app-main{
+  flex:1;
+  max-width:1200px;
+  width:100%;
+  margin:-40px auto 0;
+  padding:0 20px 40px;
+  position:relative;
+  z-index:5;
+}
+
+.app-footer{
+  margin-top:auto;
+  text-align:center;
+  padding:24px;
+  color:#64748B;
+  font-size:.9rem;
+}
+
+@media(max-width:768px){
+
+  .app-header{
+    padding:56px 18px;
+  }
+
+  .app-main{
+    margin-top:-24px;
+    padding:0 16px 30px;
+  }
+}
