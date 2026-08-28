@@ -1,31 +1,150 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
-  * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body { @apply font-sans bg-surface text-ink antialiased; }
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans text-ink antialiased;
+    background:
+      radial-gradient(circle at top right, rgba(91,59,245,.12), transparent 30%),
+      radial-gradient(circle at bottom left, rgba(14,165,233,.10), transparent 35%),
+      #F8FAFC;
+    min-height: 100vh;
+  }
+
+  ::selection {
+    background: rgba(91,59,245,.2);
+  }
 }
 
 @layer components {
-  .btn-primary { @apply bg-primary text-white px-5 py-2.5 rounded-lg font-semibold text-sm transition-all hover:shadow-glow active:scale-95; background-color: #5B3BF5; }
-  .btn-primary:hover { background-color: #4829e0; transform: translateY(-1px); }
-  .btn-ghost   { @apply border border-gray-200 text-gray-700 px-5 py-2.5 rounded-lg font-semibold text-sm transition-all; }
-  .btn-ghost:hover { border-color: #5B3BF5; color: #5B3BF5; }
-  .card        { @apply bg-white border border-gray-100 rounded-2xl p-6 shadow-card; }
-  .input       { @apply w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none transition-all; }
-  .input:focus { border-color: #5B3BF5; box-shadow: 0 0 0 3px rgba(91,59,245,0.1); }
-  .badge-easy   { @apply text-xs font-bold px-2.5 py-1 rounded-full bg-green-100 text-green-700; }
-  .badge-medium { @apply text-xs font-bold px-2.5 py-1 rounded-full bg-yellow-100 text-yellow-700; }
-  .badge-hard   { @apply text-xs font-bold px-2.5 py-1 rounded-full bg-red-100 text-red-700; }
-  .sidebar-link { @apply flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-gray-600 transition-all; }
-  .sidebar-link:hover { background-color: rgba(91,59,245,0.08); color: #5B3BF5; }
-  .sidebar-link.active { background-color: rgba(91,59,245,0.1); color: #5B3BF5; font-weight: 600; }
+
+  /* Primary Button */
+
+  .btn-primary {
+    @apply text-white px-5 py-3 rounded-xl font-semibold text-sm transition-all duration-300 shadow-lg;
+    background: linear-gradient(135deg,#5B3BF5,#7C5CFF);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(91,59,245,.35);
+  }
+
+  /* Ghost Button */
+
+  .btn-ghost {
+    @apply bg-white border border-gray-200 text-gray-700 px-5 py-3 rounded-xl font-semibold text-sm transition-all duration-300;
+  }
+
+  .btn-ghost:hover {
+    border-color:#5B3BF5;
+    color:#5B3BF5;
+    background:#F5F3FF;
+  }
+
+  /* Premium Card */
+
+  .card {
+    @apply rounded-3xl p-6 border border-white/40;
+    background: rgba(255,255,255,.82);
+    backdrop-filter: blur(18px);
+    box-shadow:
+      0 10px 35px rgba(15,23,42,.08),
+      0 2px 6px rgba(15,23,42,.04);
+    transition: .35s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow:
+      0 20px 45px rgba(15,23,42,.12),
+      0 6px 15px rgba(15,23,42,.06);
+  }
+
+  /* Input */
+
+  .input {
+    @apply w-full rounded-xl px-4 py-3 text-sm border border-gray-200 bg-white transition-all;
+  }
+
+  .input:focus {
+    outline:none;
+    border-color:#5B3BF5;
+    box-shadow:0 0 0 4px rgba(91,59,245,.12);
+  }
+
+  /* Badges */
+
+  .badge-easy{
+    @apply text-xs font-bold px-3 py-1 rounded-full bg-green-100 text-green-700;
+  }
+
+  .badge-medium{
+    @apply text-xs font-bold px-3 py-1 rounded-full bg-yellow-100 text-yellow-700;
+  }
+
+  .badge-hard{
+    @apply text-xs font-bold px-3 py-1 rounded-full bg-red-100 text-red-700;
+  }
+
+  /* Sidebar */
+
+  .sidebar-link{
+    @apply flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-gray-600 transition-all;
+  }
+
+  .sidebar-link:hover{
+    background:#F3F0FF;
+    color:#5B3BF5;
+    transform:translateX(4px);
+  }
+
+  .sidebar-link.active{
+    background:linear-gradient(135deg,#5B3BF5,#7C5CFF);
+    color:white;
+    box-shadow:0 8px 20px rgba(91,59,245,.25);
+  }
+
+  /* Navbar */
+
+  .navbar{
+    @apply sticky top-0 z-50;
+    background:rgba(255,255,255,.75);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid rgba(255,255,255,.4);
+  }
+
+  /* Hero */
+
+  .hero-title{
+    @apply text-5xl md:text-6xl font-bold leading-tight;
+    font-family:'Syne',sans-serif;
+  }
+
+  .hero-text{
+    @apply text-lg text-gray-600 mt-4 leading-relaxed;
+  }
 }
 
-@layer utilities {
-  .font-display { font-family: 'Syne', sans-serif; }
-  .scrollbar-thin { scrollbar-width: thin; }
-}
+@layer utilities{
+
+  .font-display{
+    font-family:'Syne',sans-serif;
+  }
+
+  .scrollbar-thin{
+    scrollbar-width:thin;
+  }
+
+ 
