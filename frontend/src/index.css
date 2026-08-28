@@ -146,5 +146,39 @@
   .scrollbar-thin{
     scrollbar-width:thin;
   }
+ .glass{
+    background:rgba(255,255,255,.75);
+    backdrop-filter:blur(18px);
+  }
 
+  .gradient-text{
+    background:linear-gradient(135deg,#5B3BF5,#0EA5E9);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+  }
+
+  .animate-float{
+    animation:float 4s ease-in-out infinite;
+  }
+
+  .animate-fade-up{
+    animation:fadeUp .7s ease forwards;
+  }
+}
+
+@keyframes float{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-8px);}
+}
+
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(20px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
  
