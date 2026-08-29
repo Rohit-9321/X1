@@ -19,11 +19,7 @@ export default function CompaniesPage() {
         </div>
       </nav>
       <div className="max-w-5xl mx-auto px-6 py-16">
-        <div className="text-center mb-12">
-          <div className="text-xs font-bold tracking-widest uppercase text-primary mb-3">Company Tracks</div>
-          <h1 className="font-display text-4xl font-black text-ink tracking-tight">Pick your target company</h1>
-          <p className="text-gray-500 mt-3">Every track is built around that company's actual hiring process</p>
-        </div>
+        
         {isLoading ? (
           <div className="flex justify-center py-20"><div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin"/></div>
         ) : (
