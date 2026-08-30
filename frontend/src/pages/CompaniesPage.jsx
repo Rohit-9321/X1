@@ -43,7 +43,10 @@ export default function CompaniesPage() {
                 <div className="flex items-center gap-2 mb-5 text-xs text-gray-400">
                   <Users size={12}/>{c.totalStudents?.toLocaleString() || '0'} students enrolled
                 </div>
-                ///////////////////////
+                <div className="flex items-center justify-between">
+                  <span className="font-display text-xl font-black text-ink">₹{c.price}</span>
+                  <Link to={`/signup`} className="btn-primary text-xs py-2 px-4">Start Prep →</Link>
+                </div>
               </div>
             ))}
           </div>
