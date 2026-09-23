@@ -31,7 +31,7 @@ const plans = [
 export default function LandingPage() {
   return (
     <div className="bg-white min-h-screen font-sans">
-      {/* Nav */}
+      
       <nav className="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-gray-100 px-6 py-4 flex items-center justify-between">
         <span className="font-display text-2xl font-black text-ink">X<span className="text-primary">1</span></span>
         <div className="hidden md:flex gap-6 text-sm font-medium text-gray-600">
