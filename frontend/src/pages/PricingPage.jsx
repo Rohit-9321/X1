@@ -13,7 +13,7 @@ const plans = [
     cta: 'Get Started', link: '/signup', highlight: false,
   },
   {
-    key: 'single', name: 'Single Company', price: '₹299', period: 'per company',
+    key: 'single', name: 'Single Company', price: '₹499', period: 'per company',
     desc: 'Go all-in on one target company',
     features: ['Full company topic bank','Previous year questions','All company mock tests','Interview prep guide','Detailed roadmap'],
     cta: 'Buy Pack', razorpay: true, highlight: false,
