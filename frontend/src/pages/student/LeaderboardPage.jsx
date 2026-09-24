@@ -26,7 +26,7 @@ export default function LeaderboardPage() {
         {['daily','weekly','monthly','alltime'].map(p => (
           <button key={p} onClick={()=>setPeriod(p)}
             className={`px-4 py-2 rounded-xl text-sm font-semibold capitalize transition-all ${period===p?'bg-primary text-white':'bg-white border border-gray-200 text-gray-600 hover:border-primary'}`}>
-            {p === 'alltime' ? 'All Time' : p}
+           
           </button>
         ))}
       </div>
