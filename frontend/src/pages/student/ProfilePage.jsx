@@ -61,22 +61,7 @@ export default function ProfilePage() {
       </div>
 
       {/* Edit Profile */}
-      <div className="card">
-        <h2 className="font-bold text-base mb-5">Edit Profile</h2>
-        <form onSubmit={handleSaveProfile} className="space-y-4">
-          {[['fullName','Full Name','text'],['phone','Phone','tel']].map(([f,l,t])=>(
-            <div key={f}>
-              <label className="block text-sm font-medium text-gray-700 mb-1.5">{l}</label>
-              <input type={t} className="input" value={form[f]} onChange={e=>setForm(p=>({...p,[f]:e.target.value}))} />
-            </div>
-          ))}
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1.5">Email</label>
-            <input type="email" className="input opacity-60" value={user?.email} disabled />
-          </div>
-          <button type="submit" disabled={saving} className="btn-primary">{saving?'Saving…':'Save Changes'}</button>
-        </form>
-      </div>
+      
 
       {/* Change Password */}
       {user?.password !== undefined || !user?.googleId ? (
