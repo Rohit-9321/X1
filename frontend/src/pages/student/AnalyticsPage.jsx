@@ -22,7 +22,7 @@ export default function AnalyticsPage() {
         <p className="text-gray-500 mt-1">Track your preparation progress</p>
       </div>
 
-      {/* Overview cards */}
+    
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
         {[
           { l:'Placement Score', v:`${placementScore}/100`, icon:Target, c:'text-primary' },
