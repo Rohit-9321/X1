@@ -68,9 +68,9 @@ export default function CodingProblemPage() {
 
   return (
     <div className="flex flex-col lg:flex-row gap-0 h-[calc(100vh-80px)] -mx-4 lg:-mx-8 -mt-4 lg:-mt-8">
-      {/* Left panel */}
+     
       <div className="w-full lg:w-[45%] overflow-y-auto bg-white border-r border-gray-100">
-        {/* Tabs */}
+
         <div className="flex border-b border-gray-100 sticky top-0 bg-white z-10">
           {['description','hints','submissions'].map(t => (
             <button key={t} onClick={() => setActiveTab(t)}
