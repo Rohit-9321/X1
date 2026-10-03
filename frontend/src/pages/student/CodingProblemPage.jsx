@@ -130,9 +130,9 @@ export default function CodingProblemPage() {
         </div>
       </div>
 
-      {/* Right panel - Editor */}
+    
       <div className="flex-1 flex flex-col bg-gray-950">
-        {/* Toolbar */}
+  
         <div className="flex items-center justify-between px-4 py-2.5 bg-gray-900 border-b border-gray-800">
           <select value={lang} onChange={e => handleLangChange(e.target.value)}
             className="bg-gray-800 text-gray-200 text-sm px-3 py-1.5 rounded-lg border border-gray-700 focus:outline-none focus:border-primary">
