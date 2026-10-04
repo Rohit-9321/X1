@@ -39,6 +39,46 @@ export default function DashboardPage() {
           </div>
         ))}
       </div>
+       {/* Placement Score + Radar */}
+      <div className="grid lg:grid-cols-3 gap-6">
+        <div className="card lg:col-span-1">
+          <h2 className="font-bold text-base mb-1">Placement Readiness</h2>
+          <p className="text-xs text-gray-400 mb-5">Based on your overall performance</p>
+          <div className="text-center mb-6">
+            <div className="font-display text-7xl font-black text-primary leading-none">{a?.overview?.placementScore || 0}</div>
+            <div className="text-sm text-gray-500 mt-1">out of 100</div>
+          </div>
+          <div className="space-y-2">
+            {(a?.skillRadar || []).map(s => (
+              <div key={s.skill} className="flex items-center gap-3">
+                <span className="text-xs text-gray-500 w-24 shrink-0">{s.skill}</span>
+                <div className="flex-1 h-2 bg-gray-100 rounded-full overflow-hidden">
+                  <div className="h-full bg-primary rounded-full" style={{width:`${s.value}%`}} />
+                </div>
+                <span className="text-xs font-semibold text-ink w-8 text-right">{s.value}%</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="card lg:col-span-2">
+          <h2 className="font-bold text-base mb-1">Skill Radar</h2>
+          <p className="text-xs text-gray-400 mb-4">Visualise your strengths</p>
+          {a?.skillRadar?.length ? (
+            <ResponsiveContainer width="100%" height={240}>
+              <RadarChart data={a.skillRadar}>
+                <PolarGrid stroke="#e5e7eb" />
+                <PolarAngleAxis dataKey="skill" tick={{fontSize:12, fill:'#6b7280'}} />
+                <Radar dataKey="value" stroke="#5B3BF5" fill="#5B3BF5" fillOpacity={0.18} strokeWidth={2} />
+              </RadarChart>
+            </ResponsiveContainer>
+          ) : (
+            <div className="flex items-center justify-center h-48 text-gray-400 text-sm">
+              Practice questions to see your skill radar
+            </div>
+          )}
+        </div>
+      </div>
 
      
       {/* Weekly Activity */}
