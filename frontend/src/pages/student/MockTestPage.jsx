@@ -46,7 +46,53 @@ export default function MockTestPage() {
 
   if (activeTest) {
     const q = activeTest.questions[qIndex];
-    
+    return (
+      <div className="max-w-2xl mx-auto space-y-6">
+        <div className="card">
+          <div className="flex items-center justify-between mb-2">
+            <h1 className="font-bold text-lg">{activeTest.title}</h1>
+            <span className="text-sm text-gray-500">{qIndex+1}/{activeTest.questions.length}</span>
+          </div>
+          <div className="w-full h-2 bg-gray-100 rounded-full mb-6">
+            <div className="h-full bg-primary rounded-full transition-all" style={{width:`${((qIndex+1)/activeTest.questions.length)*100}%`}} />
+          </div>
+
+          <h2 className="text-base font-semibold mb-6 leading-relaxed">{q.question}</h2>
+
+          <div className="space-y-3 mb-8">
+            {q.options?.map((opt, idx) => (
+              <div key={idx} onClick={()=>handleAnswer(q._id,idx)}
+                className={`flex items-center gap-3 p-4 rounded-xl border-2 cursor-pointer transition-all ${answers[q._id]===idx?'border-primary bg-primary/5':'border-gray-200 hover:border-gray-300'}`}>
+                <span className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold shrink-0 ${answers[q._id]===idx?'bg-primary text-white':'bg-gray-100 text-gray-600'}`}>
+                  {String.fromCharCode(65+idx)}
+                </span>
+                <span className="text-sm">{opt}</span>
+              </div>
+            ))}
+          </div>
+
+          <div className="flex justify-between">
+            <button onClick={()=>setQIndex(i=>Math.max(0,i-1))} disabled={qIndex===0} className="btn-ghost disabled:opacity-40">← Prev</button>
+            {qIndex < activeTest.questions.length-1
+              ? <button onClick={()=>setQIndex(i=>i+1)} className="btn-primary">Next →</button>
+              : <button onClick={handleSubmit} disabled={submitting} className="btn-primary bg-green-500 hover:bg-green-600">{submitting?'Submitting…':'Submit Test'}</button>}
+          </div>
+        </div>
+
+        {/* Question navigator */}
+        <div className="card">
+          <div className="font-bold text-sm mb-3">Questions</div>
+          <div className="flex flex-wrap gap-2">
+            {activeTest.questions.map((_,i) => (
+              <button key={i} onClick={()=>setQIndex(i)}
+                className={`w-9 h-9 rounded-lg text-sm font-bold transition-all ${i===qIndex?'bg-primary text-white':answers[activeTest.questions[i]._id]!==undefined?'bg-green-100 text-green-700':'bg-gray-100 text-gray-500'}`}>
+                {i+1}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+    );
   }
 
   return (
