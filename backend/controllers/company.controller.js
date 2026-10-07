@@ -39,7 +39,7 @@ exports.getCompany = async (req, res, next) => {
 exports.createCompany = async (req, res, next) => {
   try {
     const company = await Company.create({ ...req.body, createdBy: req.user._id });
-    // Create default topics
+    
     const defaultTopics = [
       { name: 'Percentages', category: 'aptitude', order: 1 },
       { name: 'Profit and Loss', category: 'aptitude', order: 2 },
