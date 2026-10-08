@@ -33,7 +33,11 @@ export default function AdminCompanies() {
   const openEdit = (c) => { setEditing(c); setForm({ name:c.name, description:c.description||'', color:c.color||'#5B3BF5', price:c.price, category:c.category, difficulty:c.difficulty, website:c.website||'' }); setModal(true); };
   const closeModal = () => { setModal(false); setEditing(null); setForm(EMPTY); };
 
-  
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (editing) updateMut.mutate({ id: editing._id, data: form });
+    else createMut.mutate(form);
+  };
 
   return (
     <div className="space-y-6">
