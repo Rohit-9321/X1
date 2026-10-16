@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+huimport { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { companyAPI } from "../api";
 import { Users, Star, Search, TrendingUp, Building2 } from "lucide-react";
@@ -141,7 +141,7 @@ export default function CompaniesPage() {
         </div>
       </section>
 
-      {/* Companies Grid */}
+    
       <section className="max-w-7xl mx-auto px-6 pb-20">
         {isLoading ? (
           <div className="flex justify-center py-24">
